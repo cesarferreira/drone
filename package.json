@@ -1,0 +1,38 @@
+{
+  "name": "drone",
+  "version": "0.0.0",
+  "description": "An android package manager",
+  "author": {
+    "name": "Cesar Ferreira",
+    "email": "cesar.manuel.ferreira@gmail.com",
+    "url": "http://cesarferreira.com"
+  },
+  "scripts": {
+    "start": "node cli.js",
+    "lint": "eslint src/**/*",
+    "test": "xo"
+  },
+  "bin": {
+    "drone": "cli.js"
+  },
+  "main": "index.js",
+  "keywords": [],
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "meow": "^3.7.0",
+    "node-time-log": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.3.0",
+    "xo": "^0.18.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cesarferreira/drone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cesarferreira/drone/issues"
+  },
+  "homepage": "https://github.com/cesarferreira/drone#readme",
+  "license": "MIT"
+}
