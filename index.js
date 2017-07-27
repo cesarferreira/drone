@@ -16,10 +16,18 @@ const self = module.exports = {
 		// todo module/build.gradle adicionar
 		log(`add ${Chalk.green(params.join(', '))}`);
 	},
+	install: () => {
+		// todo params sao mais que 2?
+		// todo module/build.gradle adicionar
+		log(`install`);
+	},
 	init: (params) => { 
 		switch (params[0].toLowerCase()) {
 			case 'add':
 				self.add(removeFirstItem(params));
+				break;
+			case 'install':
+				self.install();
 				break;
 			default:
 				console.log('Sorry');
