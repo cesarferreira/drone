@@ -9,7 +9,7 @@ const cli = meow(`
    $ drone <command> <params>
 
    $ drone install                          # downloads the packages
-   $ drone add <username/repo> <module>     # opens current pull request page
+   $ drone add <username/repo> <module>     # adds a dependency to a module
    $ drone info <username/repo>             # retrieves the info for this package
    $ drone create <todo>                    # creates a new one if it's not in the server yet
    

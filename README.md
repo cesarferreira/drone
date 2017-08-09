@@ -5,11 +5,9 @@
   <img src="https://raw.githubusercontent.com/cesarferreira/assets/master/images/screenshot_terminal_hello_world.png" width="100%" />
 </p> 
 
-Me, as an android developer was envious of yarn for the fast, reliable, and secure dependency management that the nodejs community, it's so easy to write `yarn add request` and get started using this HTTP library... So I made one for android :)
+Me, as an android developer was envious of the nodejs community for their fast and reliable dependency managers, it's so easy to write `yarn add request` and get started using this HTTP library... So I made one for android!
 
 <!-- > `drone` add `username/repository` to `module` -->
-
-
 
 <!-- [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
 [![npm](https://img.shields.io/npm/dt/drone.svg)](https://www.npmjs.com/package/drone)
@@ -30,7 +28,7 @@ Simple usage:
    $ drone <command> <params>
 
    $ drone install                          # downloads the packages
-   $ drone add <username/repo> <module>     # opens current pull request page
+   $ drone add <username/repo> <module>     # adds a dependency to a module
    $ drone info <username/repo>             # retrieves the info for this package
    $ drone create <todo>                    # creates a new one if it's not in the server yet
    
