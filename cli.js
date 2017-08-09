@@ -10,7 +10,8 @@ const cli = meow(`
 
    $ drone install                          # downloads the packages
    $ drone add <username/repo> <module>     # opens current pull request page
-   $ drone create <todo>                    # creates a new one
+   $ drone info <username/repo>             # retrieves the info for this package
+   $ drone create <todo>                    # creates a new one if it's not in the server yet
    
    # Multiline
    $ drone create square/picasso  \
@@ -20,8 +21,8 @@ const cli = meow(`
           --server jcenter
 
  Examples
+   $ drone info square/picasso to module
    $ drone add reactivex/rxjava to module
-   $ drone add square/picasso to module
    $ drone add square/retrofit to module
    $ drone add support/design to module
    $ drone add google/gson to module
