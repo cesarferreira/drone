@@ -1,9 +1,15 @@
 # drone
 > The missing package manager for Android
 
-<!-- <p align="center">
+ <p align="center">
   <img src="https://raw.githubusercontent.com/cesarferreira/assets/master/images/screenshot_terminal_hello_world.png" width="100%" />
-</p> -->
+</p> 
+
+Me, as an android developer was envious of yarn for the fast, reliable, and secure dependency management that the nodejs community, it's so easy to write `yarn add request` and get started using this HTTP library... So I made one for android :)
+
+<!-- > `drone` add `username/repository` to `module` -->
+
+
 
 <!-- [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
 [![npm](https://img.shields.io/npm/dt/drone.svg)](https://www.npmjs.com/package/drone)
