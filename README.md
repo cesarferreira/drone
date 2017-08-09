@@ -12,14 +12,27 @@
 ## Install
 
 ```sh
-yarn add drone
+npm install --global drone
 ```
+
+<!-- # TODO
+
+- [ ] item 1
+- [ ] item 2
+ -->
 
 ## Usage
+Simple usage:
+> `drone` add `username/repository` to `module`
 
-```js
-// todo
-```
+Examples:
+
+* `drone` add `reactivex/rxjava` to `module`
+* `drone` add `square/picasso` to `module`
+* `drone` add `square/okhttp` to `module`
+* `drone` add `square/retrofit` to `module`
+* `drone` add `support/design` to `module`
+* `drone` add `google/gson` to `module`
 
 ## Created by
 [Cesar Ferreira](https://cesarferreira.com)
