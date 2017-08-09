@@ -7,35 +7,37 @@ const core = require('./lib/router');
 const cli = meow(`
  Usage
    $ drone <command> <params>
-   
- Examples
-   $ drone install                    # downloads the packages
-   $ drone add <module> <package>     # opens current pull request page
-   $ drone create <todo>              # opens current pull request page
-   
-   $ drone create square/picasso --dependency com.squareup.picasso:picasso
+
+   $ drone install                          # downloads the packages
+   $ drone add <username/repo> <module>     # opens current pull request page
+   $ drone create <todo>                    # creates a new one
    
    # Multiline
    $ drone create square/picasso  \
-          --url http://square.github.io/picasso \
+          --homepage http://square.github.io/picasso \
           --description "image downloading and caching library" \
           --dependency com.squareup.picasso:picasso \
           --server jcenter
+
+ Examples
+   $ drone add reactivex/rxjava to module
+   $ drone add square/picasso to module
+   $ drone add square/retrofit to module
+   $ drone add support/design to module
+   $ drone add google/gson to module
    
+   $ drone create square/picasso --dependency com.squareup.picasso:picasso
    `,
 {
   alias: {
-    u: 'url', // Optional
+    h: 'homepage', // Optional
     d: 'description', // Optional
-    // g: 'groupId',
-    // a: 'artifactId',
-    d: 'dependency',
-    s: 'server' // Optional
+    s: 'server', // Optional
+    d: 'dependency'
   }
 });
 
 if (cli.input.length > 0 ) {
-  // console.log(JSON.stringify(cli.flags));
 	core.init(cli.input, cli.flags);
 } else {
 	cli.showHelp(2);

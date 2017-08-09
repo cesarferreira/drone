@@ -1,7 +1,7 @@
 {
   "name": "drone",
   "version": "0.0.0",
-  "description": "An android package manager",
+  "description": "The missing package manager for Android",
   "author": {
     "name": "Cesar Ferreira",
     "email": "cesar.manuel.ferreira@gmail.com",
@@ -22,8 +22,7 @@
     "homedir": "^0.6.0",
     "json-colorz": "^0.2.7",
     "meow": "^3.7.0",
-    "node-time-log": "^1.0.3",
-    "nodegit": "^0.18.3"
+    "node-time-log": "^1.0.3"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
