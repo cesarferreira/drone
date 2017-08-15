@@ -1,5 +1,7 @@
 package com.example.cesarferreira.androidsample;
 
+import com.bskyb.slavdocs.annotations.BDD;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -10,6 +12,8 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+    @BDD(ac = "a", feature = "",issue = "",rule = "")
     @Test
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);

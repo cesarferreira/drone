@@ -6,6 +6,7 @@ const core = require('./lib/router');
 
 const cli = meow(`
  Usage
+   
    $ drone <command> <params>
 
    $ drone install                          # downloads the packages
@@ -14,13 +15,14 @@ const cli = meow(`
    $ drone create                           # creates a new one if it's not in the server yet
    
  Examples
+   
    $ drone info square/picasso
    $ drone add reactivex/rxjava to module
-   $ drone add square/retrofit to module
    $ drone add support/design to module
    $ drone add google/gson to module
    
    $ drone create square/picasso --dependency com.squareup.picasso:picasso
+   
    # Multiline
    $ drone create square/picasso  \\
           --homepage http://square.github.io/picasso \\

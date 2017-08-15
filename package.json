@@ -19,6 +19,7 @@
   "keywords": [],
   "dependencies": {
     "chalk": "^2.0.1",
+    "fs-extra": "^4.0.1",
     "homedir": "^0.6.0",
     "inquirer": "^3.2.1",
     "json-colorz": "^0.2.7",
