@@ -40,9 +40,9 @@ Usage
 
    $ drone info square/picasso             # Shows the info for square/picasso
    $ drone add reactivex/rxjava app        # Adds RxJava to the `app` module
-   $ drone add square/retrofit app         # Adds RxJava to the `app` module
-   $ drone add support/design app          # Adds RxJava to the `app` module
-   $ drone add google/gson app             # Adds RxJava to the `app` module
+   $ drone add square/retrofit app         # Adds retrofit to the `app` module
+   $ drone add support/design app          # Adds design support to the `app` module
+   $ drone add google/gson app             # Adds GSON to the `app` module
    $ drone create                          # takes you throught a wizard
 ```
    
