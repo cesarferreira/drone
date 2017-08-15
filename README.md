@@ -11,9 +11,9 @@
 
 
 ## Why I made this?
-Me, as an android developer was jealous of the nodejs community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and the library is imported into the project... So I made `drone` for android!
+Me, as an android developer was jealous of the node.js community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and the library is imported into the project... So I made `drone` for Android!
 
-Since maintaining/paying for a server would be expensive, so I'm going with a `brew` approach, the community will `create` a library `once` and no one else will ever need to to it again!
+Since maintaining/paying for a server would be expensive, I'm going with a `brew` approach, the community will `create` a library `once` and no one else will ever need to do it again!
 
 ## Install
 
