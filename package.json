@@ -19,12 +19,14 @@
   "keywords": [],
   "dependencies": {
     "chalk": "^2.0.1",
+    "filehound": "^1.16.2",
     "fs-extra": "^4.0.1",
     "homedir": "^0.6.0",
     "inquirer": "^3.2.1",
     "json-colorz": "^0.2.7",
     "meow": "^3.7.0",
-    "node-time-log": "^1.0.3"
+    "node-time-log": "^1.0.3",
+    "string-similarity": "^1.2.0"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
