@@ -2,7 +2,7 @@
 > The missing package manager for Android
 
 <p align="center">
-<img src="screenshot.png" width="100%" />
+<img src="extras/screenshot.png" width="100%" />
 </p>
 
 [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
@@ -12,8 +12,6 @@
 
 ## Why I made this?
 Me, as an android developer was jealous of the nodejs community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and the library is imported into the project... So I made `drone` for android!
-
-Instead of maintaining a server with all the possible libraries I'm going with a [brew](https://brew.sh/) approach, the community will `create` a library `once` and it will be available to everyone else forever!
 
 ## Install
 
@@ -58,6 +56,20 @@ Usage
           --description "image downloading and caching library" \
           --dependency com.squareup.picasso:picasso \
           --server jcenter -->
+
+# Where are the libraries?
+
+Instead of maintaining a server with all the possible libraries I'm going with a [brew](https://brew.sh/) approach, the community will `create` a library `once` and it will be available to everyone else forever in the [hive](https://github.com/cesarferreira/drone-hive)!
+
+> $ drone create
+
+follow the wizard to generate the `info.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
+> **hive/`username/repository`/info.json**
+
+
+<p align="center">
+<img src="extras/create.png" width="100%" />
+</p>
 
 ## Created by
 [Cesar Ferreira](https://cesarferreira.com)
