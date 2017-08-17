@@ -27,6 +27,7 @@
     "meow": "^3.7.0",
     "node-read-url": "^1.0.0",
     "node-time-log": "^1.0.3",
+    "opn": "^5.1.0",
     "string-similarity": "^1.2.0",
     "xml2js": "^0.4.18"
   },
