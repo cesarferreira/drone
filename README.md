@@ -1,4 +1,4 @@
-# drone <sup>beta</sup>
+# drone
 > The missing package manager for Android
 
 <p align="center">
@@ -16,7 +16,7 @@ Me, as an android developer was jealous of the nodejs community for their fast a
 ## Install
 
 ```sh
-npm install -g drone # not yet pushed to npmjs.com
+npm install -g drone
 ```
 
 ## Usage
