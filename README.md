@@ -16,7 +16,7 @@ Me, as an android developer was jealous of the nodejs community for their fast a
 ## Install
 
 ```sh
-npm install -g drone
+npm install -g drone # not yet pushed to npmjs.com
 ```
 
 ## Usage
