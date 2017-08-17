@@ -25,8 +25,10 @@
     "inquirer": "^3.2.1",
     "json-colorz": "^0.2.7",
     "meow": "^3.7.0",
+    "node-read-url": "^1.0.0",
     "node-time-log": "^1.0.3",
-    "string-similarity": "^1.2.0"
+    "string-similarity": "^1.2.0",
+    "xml2js": "^0.4.18"
   },
   "devDependencies": {
     "eslint": "^4.3.0",
