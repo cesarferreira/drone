@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node cli.js",
     "lint": "eslint src/**/*",
-    "test": "xo"
+    "test": "node test.js"
   },
   "bin": {
     "drone": "cli.js"
