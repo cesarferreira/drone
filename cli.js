@@ -3,6 +3,10 @@
 
 const meow = require('meow');
 const router = require('./lib/router');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
+
+updateNotifier({ pkg }).notify();
 
 const cli = meow(`
 Usage

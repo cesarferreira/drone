@@ -29,6 +29,7 @@
     "node-time-log": "^1.0.3",
     "opn": "^5.1.0",
     "string-similarity": "^1.2.0",
+    "update-notifier": "^2.2.0",
     "xml2js": "^0.4.18"
   },
   "devDependencies": {
