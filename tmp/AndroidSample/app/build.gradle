@@ -28,5 +28,4 @@ dependencies {
     compile 'com.android.support:design:26.+'
     testCompile 'junit:junit:4.12'
     testCompile 'com.github.sky-uk.slavdocs:annotations:0.1.1'
-
 }
