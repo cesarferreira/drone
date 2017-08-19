@@ -108,6 +108,10 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
+bluebird@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.0.5.tgz#2ff9d07c9b3edb29d6d280fe07528365e7ecd392"
+
 bluebird@^3.4.1, bluebird@^3.4.7:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.0.tgz#791420d7f551eea2897453a8a77653f96606d67c"
@@ -771,6 +775,13 @@ filehound@^1.16.2:
     moment "^2.14.1"
     unit-compare "^1.0.1"
 
+find-in-files@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/find-in-files/-/find-in-files-0.4.0.tgz#9cd4b67a3459c54381f56ce2f1d69316ad7bb011"
+  dependencies:
+    find "^0.1.5"
+    q "^1.0.1"
+
 find-up@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
@@ -783,6 +794,12 @@ find-up@^2.0.0, find-up@^2.1.0:
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-2.1.0.tgz#45d1b7e506c717ddd482775a2b77920a3c0c57a7"
   dependencies:
     locate-path "^2.0.0"
+
+find@^0.1.5:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/find/-/find-0.1.7.tgz#c86c87af1ab18f222bbe38dec86cbc760d16a6fb"
+  dependencies:
+    traverse-chain "~0.1.0"
 
 flat-cache@^1.2.1:
   version "1.2.2"
@@ -1654,6 +1671,10 @@ pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
 
+q@^1.0.1:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
+
 rc@^1.0.1, rc@^1.1.6:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.1.tgz#2e03e8e42ee450b8cb3dce65be1bf8974e1dfd95"
@@ -1898,6 +1919,12 @@ sprintf-js@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
 
+string-search@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/string-search/-/string-search-1.2.0.tgz#b42d1b9496d24853d263b39d37fae8f7c3be9278"
+  dependencies:
+    bluebird "3.0.5"
+
 string-similarity@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/string-similarity/-/string-similarity-1.2.0.tgz#d75153cb383846318b7a39a8d9292bb4db4e9c30"
@@ -2020,6 +2047,10 @@ tmp@^0.0.31:
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.31.tgz#8f38ab9438e17315e5dbd8b3657e8bfb277ae4a7"
   dependencies:
     os-tmpdir "~1.0.1"
+
+traverse-chain@~0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/traverse-chain/-/traverse-chain-0.1.0.tgz#61dbc2d53b69ff6091a12a168fd7d433107e40f1"
 
 trim-newlines@^1.0.0:
   version "1.0.0"
