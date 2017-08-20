@@ -1,18 +1,9 @@
 # drone
 > The missing package manager for Android
 
-STATS
 <p align="center">
 <img src="extras/ss_usage_cropped.png" width="100%" />
 </p>
-
-<p align="center">
-  <a href="https://travis-ci.org/cesarferreira/drone">
-    <img src"https://travis-ci.org/cesarferreira/drone.svg?branch=master"/>
-  </a>
-</p>
-
-
 
 [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
 [![npm](https://img.shields.io/npm/dt/drone.svg)](https://www.npmjs.com/package/drone)
@@ -39,6 +30,7 @@ Usage
 
    $ drone install                            # Downloads the packages
    $ drone update                             # Get the latest packages
+   $ drone stats                              # Get some stats regarding the hive
    $ drone add <creator/library> <module>     # Adds a dependency to a module
    $ drone info <creator/library>             # Retrieves the info for this package
    $ drone open <creator/library>             # Opens the library's homepage
@@ -63,8 +55,8 @@ Instead of maintaining a server with all the possible libraries I'm going with a
 
 > $ drone create
 
-follow the wizard to generate the `info.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
-> **hive/`creator/library`.json**
+follow the wizard to generate the `<library≥.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
+> **hive/`<creator/library>`.json**
 
 
 <p align="center">
