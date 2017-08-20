@@ -1,9 +1,18 @@
 # drone
 > The missing package manager for Android
 
+STATS
 <p align="center">
 <img src="extras/ss_usage_cropped.png" width="100%" />
 </p>
+
+<p align="center">
+  <a href="https://travis-ci.org/cesarferreira/drone">
+    <img src"https://travis-ci.org/cesarferreira/drone.svg?branch=master"/>
+  </a>
+</p>
+
+
 
 [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
 [![npm](https://img.shields.io/npm/dt/drone.svg)](https://www.npmjs.com/package/drone)
