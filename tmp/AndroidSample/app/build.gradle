@@ -28,4 +28,8 @@ dependencies {
     compile 'com.android.support:design:26.+'
     testCompile 'junit:junit:4.12'
     testCompile 'com.github.sky-uk.slavdocs:annotations:0.1.1'
+  compile 'com.squareup.picasso:picasso:2.5.2'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+  compile 'com.jakewharton:butterknife:8.8.1'
+  
 }
