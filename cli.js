@@ -14,14 +14,15 @@ Usage
    $ drone <command> <params>
 
    $ drone install                            # Downloads the packages
-   $ drone update                             # Get the latest packages
-   $ drone stats                              # Get some stats regarding the hive
+   $ drone test <creator/library>             # Tests the library by fetching its version
    $ drone add <creator/library> <module>     # Adds a dependency to a module
    $ drone info <creator/library>             # Retrieves the info for this package
+   $ drone update                             # Get the latest packages
+   $ drone stats                              # Get some stats regarding the hive
+   $ drone hive                               # Opens the hive url
    $ drone open <creator/library>             # Opens the library's homepage
    $ drone create                             # Creates a new one if it's not in the server yet
    $ drone search <library>                   # Searches for the 'library' in the hive
-   $ drone test <creator/library>             # Tests the library by fetching its version
 
  Examples
 
