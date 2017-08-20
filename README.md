@@ -2,7 +2,7 @@
 > The missing package manager for Android
 
 <p align="center">
-<img src="extras/screenshot.png" width="100%" />
+<img src="extras/ss_usage_cropped.png" width="100%" />
 </p>
 
 [![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)

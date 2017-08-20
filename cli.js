@@ -14,6 +14,7 @@ Usage
    $ drone <command> <params>
 
    $ drone install                            # Downloads the packages
+   $ drone update                             # Get the latest packages
    $ drone add <creator/library> <module>     # Adds a dependency to a module
    $ drone info <creator/library>             # Retrieves the info for this package
    $ drone open <creator/library>             # Opens the library's homepage
@@ -32,12 +33,7 @@ Usage
    $ drone test square/picasso                # Tests the library by fetching its version
 `,
 {
-  alias: {
-    // h: 'homepage', // Optional
-    // d: 'description', // Optional
-    // s: 'server', // Optional
-    // d: 'dependency'
-  }
+  alias: {}
 });
 
 if (cli.input.length > 0 ) {
