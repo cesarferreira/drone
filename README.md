@@ -1,5 +1,5 @@
 # drone
-> The missing package manager for Android
+> The missing package manager for Android Developers
 
 <p align="center">
 <img src="extras/ss_usage_cropped.png" width="100%" />
@@ -41,7 +41,7 @@ Usage
 
  Examples
 
-   $ drone install                            # Downnloads the packages
+   $ drone install                            # Downloads the packages
    $ drone info square/picasso                # Shows the info for square/picasso
    $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
    $ drone open google/gson                   # Opens GSONs homepage

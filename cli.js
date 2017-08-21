@@ -26,7 +26,7 @@ Usage
 
  Examples
 
-   $ drone install                            # Downnloads the packages
+   $ drone install                            # Downloads the packages
    $ drone info square/picasso                # Shows the info for square/picasso
    $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
    $ drone open google/gson                   # Opens GSONs homepage

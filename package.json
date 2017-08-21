@@ -1,7 +1,7 @@
 {
   "name": "drone",
   "version": "0.3.0",
-  "description": "The missing package manager for Android",
+  "description": "The missing package manager for Android Developers",
   "author": {
     "name": "Cesar Ferreira",
     "email": "cesar.manuel.ferreira@gmail.com",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node cli.js",
-    "lint": "eslint src/**/*",
+    "lint": "eslint lib/**/*",
     "test": "node test.js"
   },
   "bin": {
