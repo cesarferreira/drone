@@ -1,6 +1,6 @@
 {
   "name": "drone",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "The missing package manager for Android Developers",
   "author": {
     "name": "Cesar Ferreira",
