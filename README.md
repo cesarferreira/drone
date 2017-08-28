@@ -36,7 +36,7 @@ Usage
    $ drone stats                              # Get some stats regarding the hive
    $ drone hive                               # Opens the hive url
    $ drone open <creator/library>             # Opens the library's homepage
-   $ drone create                             # Creates a new one if it's not in the server yet
+   $ drone new                                # Creates a new one if it's not in the server yet
    $ drone search <library>                   # Searches for the 'library' in the hive
 
  Examples
@@ -45,7 +45,7 @@ Usage
    $ drone info square/picasso                # Shows the info for square/picasso
    $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
    $ drone open google/gson                   # Opens GSONs homepage
-   $ drone create                             # takes you throught the creation wizard
+   $ drone new                                # takes you throught the creation wizard
    $ drone search rxjava                      # Searches the hive for 'rxjava'
    $ drone test square/picasso                # Tests the library by fetching its version
 ```
@@ -56,7 +56,7 @@ Instead of maintaining a server with all the possible libraries I'm going with a
 
 > $ drone create
 
-follow the wizard to generate the `<library≥.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
+follow the wizard to generate the `<library>.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
 > **hive/`<creator/library>`.json**
 
 
