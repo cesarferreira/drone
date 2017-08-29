@@ -33,6 +33,7 @@ Usage
    $ drone add <creator/library> <module>     # Adds a dependency to a module
    $ drone info <creator/library>             # Retrieves the info for this package
    $ drone update                             # Get the latest packages
+   $ drone list                               # List all of the packages
    $ drone stats                              # Get some stats regarding the hive
    $ drone hive                               # Opens the hive url
    $ drone open <creator/library>             # Opens the library's homepage
