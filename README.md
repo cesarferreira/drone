@@ -1,5 +1,5 @@
 # drone
-> The missing package manager for Android Developers
+> The missing package manager for Android Developers (beta)
 
 <p align="center">
 <img src="extras/ss_usage_cropped.png" width="100%" />
