@@ -36,7 +36,10 @@ Usage
    $ drone test square/picasso                # Tests the library by fetching its version
 `,
 {
-  alias: {}
+  alias: {
+    v: 'version'
+  },
+  boolean: ['version']
 });
 
 if (cli.input.length > 0 ) {
