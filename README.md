@@ -1,4 +1,4 @@
-<p align="center"><a href="http://cesarferreira.com/drone" target="_blank"><img width="100"src="https://raw.githubusercontent.com/kbrsh/moon/gh-pages/img/logo.png"></a></p>
+<p align="center"><a href="http://cesarferreira.com/drone" target="_blank"><img width="100"src="./extras/drone.png"></a></p>
 <h1 align="center">Drone</h1>
 <p align="center">The missing package manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
