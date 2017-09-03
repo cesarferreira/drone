@@ -1,16 +1,24 @@
-# drone
-> The missing package manager for Android Developers <sup>`(beta)`</sup>
-
+<p align="center"><a href="http://cesarferreira.com/drone" target="_blank"><img width="100"src="https://raw.githubusercontent.com/kbrsh/moon/gh-pages/img/logo.png"></a></p>
+<h1 align="center">Drone</h1>
+<p align="center">The missing package manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
-<img src="extras/ss_usage_cropped.png" width="100%" />
+  <a href="https://travis-ci.org/cesarferreira/drone"><img src="https://travis-ci.org/cesarferreira/drone.svg?branch=master" alt="Build Status"></a>
+  <a href="https://codecov.io/gh/cesarferreira/drone"><img src="https://img.shields.io/npm/dt/drone.svg" alt="npm"></a>
+  <a href="https://codecov.io/gh/cesarferreira/drone"><img src="https://img.shields.io/npm/v/drone.svg" alt="npm"></a>
+  <a href="https://cesarferreira.com/drone"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-[![Build Status](https://travis-ci.org/cesarferreira/drone.svg?branch=master)](https://travis-ci.org/cesarferreira/drone)
-[![npm](https://img.shields.io/npm/dt/drone.svg)](https://www.npmjs.com/package/drone)
-[![npm](https://img.shields.io/npm/v/drone.svg)](https://www.npmjs.com/package/drone) 
 
+### Summary
 
-## Why I made this?
+- :tada: Small file size (7kb minified + gzip)
+- :zap: Blazing fast performance
+- :rocket: Intuitive, easy-to-learn API
+- :gem: Powerful directives
+- :hammer: Compose with Components
+
+### What is it?
+
 Me, as an android developer was jealous of the nodejs community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and the library is imported into the project... So I made `drone` for android!
 
 ## Install
@@ -22,6 +30,10 @@ npm install -g drone
 ## Usage
 Simple usage:
 > `drone` add `creator/library` `module`
+
+<p align="center">
+<img src="extras/ss_usage_cropped.png" width="100%" />
+</p>
 
 ```
 Usage
@@ -55,7 +67,7 @@ Usage
 
 Instead of maintaining a server with all the possible libraries I'm going with a [brew](https://brew.sh/) approach, the community will `create` a library `once` and it will be available to everyone else forever in the [hive](https://github.com/cesarferreira/drone-hive)!
 
-> $ drone create
+> $ drone new
 
 follow the wizard to generate the `<library>.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
 > **hive/`<creator/library>`.json**
