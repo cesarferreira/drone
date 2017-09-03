@@ -11,11 +11,12 @@
 
 ### Summary
 
-- :tada: Small file size (7kb minified + gzip)
-- :zap: Blazing fast performance
-- :rocket: Intuitive, easy-to-learn API
-- :gem: Powerful directives
-- :hammer: Compose with Components
+- :zap: Blazing fast add of libraries
+- :tada: No need to search the web for `that` library
+- :rocket: Intuitive, easy-to-learn tool
+- :gem: Add multiple dependencies with a one liner
+- :tada: Automated dependency and package management
+- :hammer: Automatic import custom urls (e.g. jitpack)
 
 ### What is it?
 
