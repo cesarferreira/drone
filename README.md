@@ -1,4 +1,4 @@
-<p align="center"><a href="http://cesarferreira.com/drone" target="_blank"><img width="200"src="extras/logo512_cropped.png"></a></p>
+<p align="center"><a href="https://github.com/cesarferreira/drone" target="_blank"><img width="200"src="extras/logo512_cropped.png"></a></p>
 <h1 align="center">Drone</h1>
 <p align="center">The missing package manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
@@ -11,16 +11,16 @@
 
 ### Summary
 
-- :zap: Blazing fast add of libraries
+- :zap: Blazing fast way to add libraries
 - :tada: No need to search the web for `that` library
 - :rocket: Intuitive, easy-to-learn tool
 - :gem: Add multiple dependencies with a one liner
-- :tada: Automated dependency and package management
+- :v: Automated dependency and package management
 - :hammer: Automatic import custom urls (e.g. jitpack)
 
 ### What is it?
 
-Me, as an android developer was jealous of the nodejs community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and the library is imported into the project... So I made `drone` for android!
+As an android developer I was jealous of the node.js community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and a library is imported into the project... So I made `drone` for android!
 
 ## Install
 
@@ -80,7 +80,9 @@ follow the wizard to generate the `<library>.json` file then open the pull reque
 
 ## Created by
 [Cesar Ferreira](https://cesarferreira.com)
-<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ## License
 MIT © [Cesar Ferreira](http://cesarferreira.com)
+
+## Logo
+by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/drone_196493#term=drone&page=1&position=15" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
