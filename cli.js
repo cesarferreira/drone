@@ -42,7 +42,8 @@ Usage
   boolean: ['version']
 });
 
-if (cli.input.length > 0 ) {
+// todo missing HasFlag --version, -v
+if (cli.input.length > 0) {
 	router.init(cli.input, cli.flags);
 } else {
 	cli.showHelp(2);
