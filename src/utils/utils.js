@@ -20,14 +20,13 @@ Array.prototype.subarray = function (start, end) {
 const self = module.exports = {
   run: command => {
     return new Promise((resolve, reject) => {
-
       try {
         shell.exec(command, { silent: false }).stdout;
         resolve();
       } catch (error) {
         reject(error);
       }
-    })
+    });
   },
   isEmpty: obj => {
     return Object.keys(obj).length === 0;

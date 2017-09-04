@@ -18,6 +18,7 @@ const UpdateTask = require('./tasks/update');
 const InstallTask = require('./tasks/install');
 const StatsTask = require('./tasks/stats');
 const ListTask = require('./tasks/list');
+const RemoveTask = require('./tasks/remove');
 
 // Main code //
 const self = module.exports = {
@@ -66,6 +67,11 @@ const self = module.exports = {
 				case 'install':
 				case 'i':
 					InstallTask.init(input);
+					break;
+				case 'remove':
+				case 'delete':
+				case 'rm':
+					RemoveTask.init(input);
 					break;
 				case 'stats':
 				case 's':
