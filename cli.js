@@ -2,7 +2,7 @@
 'use strict';
 
 const meow = require('meow');
-const router = require('./lib/router');
+const router = require('./src/router');
 const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
 
@@ -16,6 +16,7 @@ Usage
    $ drone install                            # Downloads the packages
    $ drone test <creator/library>             # Tests the library by fetching its version
    $ drone add <creator/library> <module>     # Adds a dependency to a module
+   $ drone remove <creator/library> <module>  # Removes the dependency from a module
    $ drone info <creator/library>             # Retrieves the info for this package
    $ drone update                             # Get the latest packages
    $ drone list                               # List all of the packages
@@ -30,6 +31,7 @@ Usage
    $ drone install                            # Downloads the packages
    $ drone info square/picasso                # Shows the info for square/picasso
    $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
+   $ drone rm square/retrofit app             # removes retrofit from the 'app' module 
    $ drone open google/gson                   # Opens GSONs homepage
    $ drone new                                # takes you throught the creation wizard
    $ drone search rxjava                      # Searches the hive for 'rxjava'

@@ -62,6 +62,12 @@ const self = module.exports = {
 		var text = data.join("\n");
 		fs.writeFileSync(pathToFile, text, 'utf8');
 	},
+	deleteLineFromFile: (pathToFile, lineNumber) => {
+		var data = fs.readFileSync(pathToFile).toString().split("\n");
+		data.splice(lineNumber, 1);
+		var text = data.join("\n");
+		fs.writeFileSync(pathToFile, text, 'utf8');
+	},
 	findLineToInsertLibrary: (module) => {
 		return self.gradleContentAsString(module)
 			.then(content => {
