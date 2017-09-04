@@ -16,6 +16,22 @@ Array.prototype.subarray = function (start, end) {
   return this.slice(start, this.length + 1 - (end * -1));
 }
 
+function findSync(...args) {
+  if (args.length !== 2) {
+    reject('You must provide all arguments');
+  }
+  const [targetStr, patternStr] = args;
+  const results = [];
+  const pattern = new RegExp(patternStr, 'gi');
+
+  targetStr.split('\n').forEach((value, index) => {
+    if (value.match(pattern)) {
+      results.push({ line: index + 1, text: value, term: patternStr });
+    }
+  });
+  return results;
+}
+
 // Main code //
 const self = module.exports = {
   run: command => {
@@ -72,5 +88,14 @@ const self = module.exports = {
         }
       });
     });
+  },
+  findStringInFileSync: (textToFind, pathToFile) => {
+    const content = fs.readFileSync(pathToFile, 'utf8');  
+    const resultArr = findSync(content, textToFind)
+    let result = [];
+    if (resultArr.length > 0) {
+      result = resultArr;
+    }
+    return result;
   }
 };
