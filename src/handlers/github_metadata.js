@@ -8,6 +8,10 @@ function getGithubUrl(pair) {
 	return `https://github.com/${pair}`
 }
 
+function containsHttp(str) {
+	return str.indexOf(`http`) !== -1;
+}
+
 function getMetadata(pair) {
 	const inspector = require('github-project-inspector').createInspector({
 		plugins: ['readme', 'repo']
@@ -50,7 +54,7 @@ function findCompileDependency(readme) {
 	for (let line of arr) {
 		const count = countColons(line);
 
-		if (count === 2) {
+		if (count === 2 && !containsHttp(line)) {
 			let last = getTheOne(line);
 			last = replaceAll(last, '`', ``);
 			last = replaceAll(last, `'`, ``);
