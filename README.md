@@ -1,4 +1,4 @@
-<p align="center"><a href="https://github.com/cesarferreira/drone" target="_blank"><img width="200"src="extras/logo512_cropped.png"></a></p>
+<p align="center"><a href="https://github.com/cesarferreira/drone" target="_blank"><img width="200"src="extras/logo.png"></a></p>
 <h1 align="center">Drone</h1>
 <p align="center">The missing package manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
@@ -33,7 +33,7 @@ Simple usage:
 > `drone` add `creator/library` `module`
 
 <p align="center">
-<img src="extras/ss_usage_cropped.png" width="100%" />
+<img src="extras/add.gif" width="100%" />
 </p>
 
 ```
@@ -77,7 +77,7 @@ follow the wizard to generate the `<library>.json` file then open the pull reque
 
 
 <p align="center">
-<img src="extras/create.png" width="100%" />
+<img src="extras/new.gif" width="100%" />
 </p>
 
 ## Created by
