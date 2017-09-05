@@ -55,22 +55,6 @@ const self = module.exports = {
   printInfo: (info) => {
     jclrz(info);
   },
-  countFileLines: filePath => {
-    return new Promise((resolve, reject) => {
-      let lineCount = 0;
-      fs.createReadStream(filePath)
-        .on("data", (buffer) => {
-          let idx = -1;
-          lineCount--; // Because the loop will run once for idx=-1
-          do {
-            idx = buffer.indexOf(10, idx + 1);
-            lineCount++;
-          } while (idx !== -1);
-        }).on("end", () => {
-          resolve(lineCount);
-        }).on("error", reject);
-    });
-  },
   findStringInFile: (textToFind, pathToFile) => {
     return new Promise((resolve, reject) => {
       fs.readFile(pathToFile, 'utf8', function (err, content) {

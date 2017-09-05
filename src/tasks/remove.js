@@ -17,10 +17,10 @@ function findAndDelete(dep, gradleFilePath) {
   if (found.length !== 0) {
     const toDelete = found[0];
     
-    Log.title(`Deleted ${Chalk.green(dep.dependency)} #${toDelete.line - 1}`);
+    Log.title(`Deleted ${Chalk.green(dep.dependency)}`);
     GradleUtils.deleteLineFromFile(gradleFilePath, toDelete.line-1);
   } else {
-    Log.titleError(`Couldn't find it in this build.gradle`);
+    Log.titleError(`Couldn't find ${Chalk.green(dep.dependency)} in this build.gradle`);
   }
 }
 

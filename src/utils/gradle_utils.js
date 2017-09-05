@@ -48,6 +48,9 @@ const self = module.exports = {
 	gradleContentAsString: module => {
 		return fsp.readFile(self.gradleFilePath(module));
 	},
+	gradleContentAsStringSync: module => {
+		return fsp.readFileSync(self.gradleFilePath(module));
+	},
 	getRepositoryLine: (server, url) => {
 		return `        ${server} { url '${url}' }`
 	},
@@ -69,20 +72,18 @@ const self = module.exports = {
 		fs.writeFileSync(pathToFile, text, 'utf8');
 	},
 	findLineToInsertLibrary: (module) => {
-		return self.gradleContentAsString(module)
-			.then(content => {
-				// find DEPENDENCY
-				return Utils.findStringInFile('dependencies', self.gradleFilePath(module))
-					.then(found => {
-						const item = found[0];
-						const line = item.line;
-						const cursor = item.text.indexOf(`{`) + 1;
-						// FIND STARTING and ENDING BRACKET
-						const result = self.findEndBracket(self.gradleFilePath(module), line, cursor);
-						// ENDINGBRACKET - 1 in position should be the place
-						return result.line - 1;
-					});
-			});
+		const content = self.gradleContentAsStringSync(module)
+
+		// find DEPENDENCY
+		const found = Utils.findStringInFileSync('dependencies', self.gradleFilePath(module))
+			
+		const item = found[0];
+		const line = item.line;
+		const cursor = item.text.indexOf(`{`) + 1;
+		// FIND STARTING and ENDING BRACKET
+		const result = self.findEndBracket(self.gradleFilePath(module), line, cursor);
+		// ENDINGBRACKET - 1 in position should be the place
+		return result.line - 1;
 	},
 	findLineToInsertDependency: (repositoryInfo) => {
 		return self.mainGradleContentAsString()
@@ -100,11 +101,7 @@ const self = module.exports = {
 									// ACHEI UM ALL PROJECTS
 									const rightRepository = theRightRepository(cleanedRepositories, cleanedAllProjects);
 
-									if (Utils.isEmpty(rightRepository)) {
-										// todo INSERT ALLPROJECT STUFF
-										log(' insert all project stuff')
-										
-									} else {
+									if (!Utils.isEmpty(rightRepository)) {
 										const cursor = rightRepository.text.indexOf(`{`) + 1;
 										// const line = getRepositoryLine(repositoryInfo.url); TODO ISTO NAO DEVIA ESTAR AQUI
 										const result = self.findEndBracket(self.mainGradleFilePath(), rightRepository.line, cursor);
