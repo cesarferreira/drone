@@ -10,7 +10,6 @@ const GithubMetadata = require('../handlers/github_metadata');
 const QuickSearch = require('../handlers/quick_search');
 
 function getQuestions(metadata) {
-  
   const CREATE_QUESTIONS = [
     {
       type: 'input',
@@ -49,14 +48,12 @@ function getQuestions(metadata) {
       default: () => metadata.description
     }
   ];
-
   return CREATE_QUESTIONS;
 }
 
 // Main code //
 const self = module.exports = {
   init: (input, flags) => {
-
     const askForPair = [{
         type: 'input',
         name: 'pair',
@@ -65,40 +62,33 @@ const self = module.exports = {
       }];
 
     inquirer.prompt(askForPair)
-    .then(pairAnswers => {
-      const pair = pairAnswers.pair.trim();
-      GithubMetadata.getGithubMetadata(pair)
-        .then(metadata => {
-          inquirer.prompt(getQuestions(metadata))
-            .then(answers => {
-    
-              const result = self.getFormatedResult(answers, pair);
-              const path = `${Constants.HIVE_LIBS_DIR}/${pair.toLowerCase().split('/')[0]}`
-              const jsonFileName = pair.toLowerCase().split('/')[1];
-    
-              log('\nInstructions:\n')
-              const file = `/hive` + path.replace(Constants.HIVE_LIBS_DIR, ``) +`/`+ jsonFileName+`.json`;
-              log(`Go to ${Chalk.bgRed.white(Constants.HIVE_GITHUB_URL)}`)
-              log(`Open a pull request in this path: ${Chalk.bgRed.white(file)} with this content:`)
-              
-              const infoContent = JSON.stringify(result, null, 2);
-
-              self.createFileIn(`${path}`, jsonFileName, infoContent)
-    
-              // force the update of the summary file
-              QuickSearch.initOrUpdateFile();
+      .then(pairAnswers => {
+        const pair = pairAnswers.pair.trim();
+        GithubMetadata.getGithubMetadata(pair)
+          .then(metadata => {
+            inquirer.prompt(getQuestions(metadata))
+              .then(answers => {
+                const result = self.getFormatedResult(answers, pair);
+                const path = `${Constants.HIVE_LIBS_DIR}/${pair.toLowerCase().split('/')[0]}`
+                const jsonFileName = pair.toLowerCase().split('/')[1];
+      
+                log('\nInstructions:\n')
+                const file = `/hive` + path.replace(Constants.HIVE_LIBS_DIR, ``) +`/`+ jsonFileName+`.json`;
+                log(`Go to ${Chalk.bgRed.white(Constants.HIVE_GITHUB_URL)}`)
+                log(`Open a pull request in this path: ${Chalk.bgRed.white(file)} with this content:`)
+                
+                const infoContent = JSON.stringify(result, null, 2);
+                self.createFileIn(`${path}`, jsonFileName, infoContent)
+      
+                // force the update of the summary file
+                QuickSearch.initOrUpdateFile();
+            });
           });
-        });
-    });
-  },
-  createPullRequest: result => { 
-    // TODO
-    // log(`I have no idea how to create a PR`);
+      });
   },
   commitChanges: ((destinationFile, name) => {
     // log(`git add ${destinationFile}; git commit -m "added ${name}"`)
-    // return Utils.run(`git add ${destinationFile}; git commit -m "added ${name}"`)
-      
+    // return Utils.run(`git add ${destinationFile}; git commit -m "added ${name}"`)   
   }),
   createFileIn:((destination, fileName, content) => {
     fs.ensureDirSync(destination);
@@ -114,17 +104,11 @@ const self = module.exports = {
 
       log(Chalk.green(content));
 
-      // log("The file was saved in " + destinationFile);
-
       self.commitChanges(destinationFile, JSON.parse(content).name)
-      //   .then(repo => {
-      //     log(`added ${name}`);
-      //   })
     }); 
   }),
   getFormatedResult:((answers, pair) => {
     let result = {};
-
     result.name = pair;
 
     if (answers.description !== '') {
