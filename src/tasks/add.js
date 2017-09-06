@@ -71,7 +71,6 @@ function handleGradleDependencyInjection(module, dependencies, gradleFilePath) {
 		})
 
 		Promise.all(actions);
-
 	} else {
 		Log.titleError(`Can't find this gradle file`)
 		log(gradleFilePath)
