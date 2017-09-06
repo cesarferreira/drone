@@ -18,6 +18,7 @@
   "main": "index.js",
   "keywords": [],
   "dependencies": {
+    "analytics-node": "^3.0.0",
     "chalk": "^2.0.1",
     "filehound": "^1.16.2",
     "find-in-files": "^0.4.0",
