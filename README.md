@@ -33,7 +33,7 @@ Simple usage:
 > `drone` add `creator/library` `module`
 
 <p align="center">
-<img src="extras/add.gif" width="100%" />
+<img src="extras/add3.gif" width="100%" />
 </p>
 
 ```
