@@ -1,6 +1,6 @@
 <p align="center"><a href="https://github.com/cesarferreira/drone" target="_blank"><img width="200"src="extras/logo.png"></a></p>
 <h1 align="center">Drone</h1>
-<p align="center">The missing package manager for Android Developers <sup>(beta)</sup></p>
+<p align="center">The missing library manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
   <a href="https://travis-ci.org/cesarferreira/drone"><img src="https://travis-ci.org/cesarferreira/drone.svg?branch=master" alt="Build Status"></a>
   <a href="https://codecov.io/gh/cesarferreira/drone"><img src="https://img.shields.io/npm/dt/drone.svg" alt="npm"></a>
