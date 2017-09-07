@@ -3,9 +3,9 @@
 <p align="center">The missing library manager for Android Developers <sup>(beta)</sup></p>
 <p align="center">
   <a href="https://travis-ci.org/cesarferreira/drone"><img src="https://travis-ci.org/cesarferreira/drone.svg?branch=master" alt="Build Status"></a>
-  <a href="https://codecov.io/gh/cesarferreira/drone"><img src="https://img.shields.io/npm/dt/drone.svg" alt="npm"></a>
-  <a href="https://codecov.io/gh/cesarferreira/drone"><img src="https://img.shields.io/npm/v/drone.svg" alt="npm"></a>
-  <a href="https://cesarferreira.com/drone"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="https://www.npmjs.com/package/drone"><img src="https://img.shields.io/npm/dt/drone.svg" alt="npm"></a>
+  <a href="https://www.npmjs.com/package/drone"><img src="https://img.shields.io/npm/v/drone.svg" alt="npm"></a>
+  <a href="https://github.com/cesarferreira/drone/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
 
