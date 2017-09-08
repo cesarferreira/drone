@@ -22,6 +22,23 @@
 
 As an android developer I was jealous of the node.js community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and a library is imported into the project... So I made `drone` for android!
 
+If you think about it there are like 50 libraries that are used in 95% of the apps (retrofit, rxjava, gson, picasso, roboletric, recyclerview-v7, etc.)
+
+I made this because every time I want to add (lets say) butterknife I need to
+1. google butterknife
+2. go to the readme
+3. find the lines to copy
+4. notice that butterknife has 2 dependencies
+5. copy and paste in my gradle file
+6. OPTIONAL if it was not in jcenter, go to the main build gradle and put the custom URL
+
+OR...
+
+```sh
+drone add jakewharton/butterknife
+```
+and everything will be done for you automatically
+
 ## Install
 
 ```sh
@@ -79,6 +96,8 @@ follow the wizard to generate the `<library>.json` file then open the pull reque
 <p align="center">
 <img src="extras/new.gif" width="100%" />
 </p>
+
+If you look closely, when you type `square/retrofit`, `drone` will autofill everything for you, and even if it takes a few hours for the pull request to be accepted you'll be able to do `drone add square/retrofit` because the `drone new` task will add it to your personal server/folder.
 
 ## Created by
 [Cesar Ferreira](https://cesarferreira.com)
