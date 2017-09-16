@@ -15,11 +15,11 @@ const self = module.exports = {
       fs.ensureDirSync(destination)
       process.chdir(destination);
       if (fs.existsSync(`${destination}/.git/`)) {
-
         if (!ConfigUtils.shouldIUpdateTheHive()) {
           resolve('No need to update')
         } else {
-          Utils.run(`git pull`)
+          log(Chalk.yellow(`Updating the hive repository...`));
+          Utils.run(`git pull`, true)
             .then(repo => {
               ConfigUtils.updateOrCreateConfig();
               QuickSearch.initOrUpdateFile()
@@ -32,8 +32,8 @@ const self = module.exports = {
           });
         }
       } else {
-        // log(`Gonna clone the repository...`)
-        Utils.run(`git clone ${url} ${destination}`)
+        log(Chalk.green(`Cloning the hive repository...`));
+        Utils.run(`git clone ${url} ${destination}`, true)
           .then(repo => {
             ConfigUtils.updateOrCreateConfig();
             QuickSearch.initOrUpdateFile()

@@ -34,10 +34,12 @@ function findSync(...args) {
 
 // Main code //
 const self = module.exports = {
-  run: command => {
+  run: (command, silent) => {
+    silent = typeof silent !== 'undefined' ? silent : false;
+
     return new Promise((resolve, reject) => {
       try {
-        shell.exec(command, { silent: false }).stdout;
+        shell.exec(command, { silent }).stdout;
         resolve();
       } catch (error) {
         reject(error);
