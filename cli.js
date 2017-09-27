@@ -33,7 +33,7 @@ Usage
    $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
    $ drone rm square/retrofit app             # removes retrofit from the 'app' module 
    $ drone open google/gson                   # Opens GSONs homepage
-   $ drone new                                # takes you throught the creation wizard
+   $ drone new                                # takes you through the creation wizard
    $ drone search rxjava                      # Searches the hive for 'rxjava'
    $ drone test square/picasso                # Tests the library by fetching its version
 `,
