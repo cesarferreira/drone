@@ -5,7 +5,7 @@ const Chalk = require('chalk');
 const log = console.log;
 const Constants = require('../utils/constants');
 const fs = require('fs-extra');
-const Hive = require('../handlers/Hive');
+const Hive = require('../handlers/hive');
 const xml2js = require('xml2js');
 
 // Main code //
