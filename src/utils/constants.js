@@ -11,7 +11,7 @@ const HIVE_LIBS_DIR = `${HIVE_HOME_DIR}/hive`;
 const HIVE_SUMMARY_FILE = `${DRONE_HOME_DIR}/hive_summary.json`;
 const DRONE_CONFIG_FILE = `${DRONE_HOME_DIR}/config.json`;
 
-const UPDATE_TIMOUT = 60 * 60; // 1 hour in seconds
+const UPDATE_TIMOUT = 60 * 60 * 48; // 48 hours in seconds
 
 const JCENTER_URL_TEMPLATE = `https://jcenter.bintray.com/PLACEHOLDER/maven-metadata.xml`;
 const MAVEN_URL_TEMPLATE = `http://repo1.maven.org/maven2/PLACEHOLDER/maven-metadata.xml`;
