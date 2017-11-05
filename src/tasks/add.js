@@ -85,20 +85,28 @@ const self = module.exports = {
 			return;
 		}
 
-		const module = input[1];
+		const module = input[input.length-1];
+		const libraries = input.splice(0, input.length-1)
+		
+		// log(libraries)
+		// log(module)
+		
+		// process.exit(2)
+		libraries.forEach(library => {
 
-		QuickSearch.search(input[0])
+			QuickSearch.search(library)
 			.then(result => {
 				if (result.rating === 1) {
 					hive.getWithVersions(result.target)
-						.then(info => {
-							handleRepositoryInjection(info);
-							handleGradleDependencyInjection(module, info.dependencies, GradleUtils.gradleFilePath(module));
-						});
+					.then(info => {
+						handleRepositoryInjection(info);
+						handleGradleDependencyInjection(module, info.dependencies, GradleUtils.gradleFilePath(module));
+					});
 				} else {
 					Log.title('Did you mean');
 					log(`${result.target}`);
 				}
 			});
-	}
-};
+		})
+		}
+	};
