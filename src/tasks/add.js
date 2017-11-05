@@ -65,7 +65,6 @@ function injectDependency(dep, dependenciesLength, module, gradleFilePath) {
 
 function handleGradleDependencyInjection(module, dependencies, gradleFilePath) {
 	if (GradleUtils.gradleFileExistsIn(module)) {
-		
 		var actions = dependencies.map(dep => {
 			return injectDependency(dep, dependencies.length, module, gradleFilePath);
 		})
@@ -88,12 +87,7 @@ const self = module.exports = {
 		const module = input[input.length-1];
 		const libraries = input.splice(0, input.length-1)
 		
-		// log(libraries)
-		// log(module)
-		
-		// process.exit(2)
 		libraries.forEach(library => {
-
 			QuickSearch.search(library)
 			.then(result => {
 				if (result.rating === 1) {

@@ -7,6 +7,7 @@ const hive = require('../handlers/hive');
 const QuickSearch = require('../handlers/quick_search');
 const Log = require('../utils/log_utils');
 const Utils = require('../utils/utils');
+const Suggestions = require('../handlers/suggestions');
 
 // Main code //
 const self = module.exports = {
@@ -29,9 +30,9 @@ const self = module.exports = {
 								log(Chalk.green(line))
 							});
 						});
-				} else if (result.rating > 0.4) {
+				} else if (result.rating > 0.3) {
 					Log.title(`Did you mean`);
-					log(Chalk.grey(`${Math.round(result.rating * 100)}% `) + `${result.target} `);
+					log(Suggestions.getSuggestion(result));
 				} else {
 					Utils.suggestCreation(input);
 				}

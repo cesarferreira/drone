@@ -49,6 +49,12 @@ const self = module.exports = {
   isEmpty: obj => {
     return Object.keys(obj).length === 0;
   },
+  sortByKey: (array, key) => {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    }).reverse();
+  },
   suggestCreation: (input) => {
     Log.titleError(`CANT FIND ${Chalk.yellow(input)}`)
     log(`Try to run ${Chalk.green('drone update')} to get the latest packages`)

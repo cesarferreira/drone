@@ -10,7 +10,8 @@ const Metadata = require('../metadata/metadata');
 
 // Main code //
 const self = module.exports = {
-  get: (pair) => {
+
+  get: pair => {
     return new Promise((resolve, reject) => {
       const path = `${Constants.HIVE_LIBS_DIR}/${pair}.json`;
       let result = null;
@@ -22,11 +23,8 @@ const self = module.exports = {
       }
     });
   },
-  getDescription: (pair) => {
-    const path = `${Constants.HIVE_LIBS_DIR}/${pair}.json`;
-    return require(path).description;
-  },    
-  getWithVersions: (pair) => {
+
+  getWithVersions: pair => {
     return self.get(pair)
       .then(info => {
         return Metadata.getLatestVersions(info)
@@ -46,9 +44,11 @@ const self = module.exports = {
     });
     return compileLines;
   },
+
   getCompileLine: (dep) => {
     return `    ${dep.compileType} '${dep.dependency}:${dep.version}'`;
   },
+
   cloneOrUpdate: () => {
     return Git.cloneOrUpdate(Constants.HIVE_GITHUB_URL, Constants.HIVE_HOME_DIR);
   }
