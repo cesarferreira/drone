@@ -26,8 +26,8 @@ function getQuestions(metadata) {
     {
       type: 'input',
       name: 'compileType',
-      message: `What's the compilation type? ${Chalk.gray('(e.g. compile/testCompile/provide/etc)')}`,
-      default: () => 'compile'
+      message: `What's the compilation type? ${Chalk.gray('(e.g. implementation/implementationCompile/provide/etc)')}`,
+      default: () => 'implementation'
     },
     {
       type: 'input',

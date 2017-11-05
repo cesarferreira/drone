@@ -13,6 +13,30 @@ function readConfig(path) {
 		.then(content => JSON.parse(content));
 }
 
+function getFilteredItems(term, items) {
+	let result = items;
+	if (term.indexOf('/') === -1) {
+		result = items.map(item => item.split('/')[1])
+	}
+
+	return result;
+}
+
+function findMatch(term, items) {
+	let result = items;
+	let newTerm = term;
+	if (term.indexOf('/') === -1) {
+		result = items.map(item => item.split('/')[1])
+	}
+
+	if (result.indexOf(term) !== -1) {
+		const index = result.indexOf(term);
+		newTerm = items[index]
+	}
+
+	return newTerm;
+}
+
 // Main code //
 const self = module.exports = {
 	findAllJsonFiles: () => { 
@@ -55,13 +79,15 @@ const self = module.exports = {
 	search: term => {
 		return self.read()
 			.then(items => {
-				return Similarity.findBestMatch(term, items).bestMatch;
+				const rightTerm = findMatch(term, items);
+				return Similarity.findBestMatch(rightTerm, items).bestMatch;
 			})
 	},
 	searchWithMatches: term => {
 		return self.read()
 			.then(items => {
-				return Similarity.findBestMatch(term, items);
+				const rightTerm = findMatch(term, items);				
+				return Similarity.findBestMatch(rightTerm, items);
 			})
 	}
 };
