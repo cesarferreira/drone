@@ -22,6 +22,10 @@ const self = module.exports = {
       }
     });
   },
+  getDescription: (pair) => {
+    const path = `${Constants.HIVE_LIBS_DIR}/${pair}.json`;
+    return require(path).description;
+  },    
   getWithVersions: (pair) => {
     return self.get(pair)
       .then(info => {
