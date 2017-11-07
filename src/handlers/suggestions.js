@@ -11,7 +11,8 @@ const self = module.exports = {
 
   getSuggestion: (item) => {    
     const description = self.getLibraryDescription(item.target);
-    return Chalk.grey(`${Math.round(item.rating * 100)}% `)+`${Chalk.bold(item.target)}: ${Chalk.grey(description)}`;
+    // Chalk.grey(`${Math.round(item.rating * 100)}% `)+
+    return `${item.target}: ${Chalk.grey(description)}`;
   },
 
   getSuggestions: items => {

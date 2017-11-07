@@ -12,18 +12,18 @@ const QuickSearch = require('../handlers/quick_search');
 const self = module.exports = {
   init: (input) => {
 
-    QuickSearch.search(input[0])
-    .then(result => {
-      if (result.rating === 1) {
-        hive.getWithVersions(result.target)
-        .then(info => {
-          Utils.printInfo(info);          
-        });
-      } else {
-        Log.title('Did you mean');
-        log(`${result.target}`);
-      }
-    });
+    const term = input[0]
+    QuickSearch.searchWithMatches(term)
+      .then(result => {
+        if (result.bestMatch.rating === 1) {
+          hive.getWithVersions(result.bestMatch.target)
+            .then(info => {
+              Utils.printInfo(info);          
+            });
+        } else {
+          QuickSearch.showSuggestionsIfPresent(result.ratings, term)
+        }
+      });
   },
   print: pair => {
     hive.get(pair)

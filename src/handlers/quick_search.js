@@ -17,13 +17,6 @@ function readConfig(path) {
 		.then(content => JSON.parse(content));
 }
 
-function getFilteredItems(term, items) {
-	let result = items;
-	if (term.indexOf('/') === -1) {
-		result = items.map(item => item.split('/')[1])
-	}
-	return result;
-}
 
 function findMatch(term, items) {
 	let result = items;
@@ -39,18 +32,6 @@ function findMatch(term, items) {
 
 	return newTerm;
 }
-
-function showSuggestionsifPresent(suggestions) {
-	if (suggestions.length > 0) {
-		Log.title(`Did you mean`);
-		suggestions.forEach(item => {
-			log(item);
-		})
-	} else {
-		Utils.suggestCreation(term);  
-	}
-}
-
 
 // Main code //
 const self = module.exports = {
@@ -91,6 +72,12 @@ const self = module.exports = {
 
 		return arrayOfPairs;
 	},
+	getPairFromInput: term => { 
+		return self.read()
+			.then(items => {
+				return findMatch(term, items);
+			});
+	},
 	search: term => {
 		return self.read()
 			.then(items => {
@@ -109,18 +96,30 @@ const self = module.exports = {
 	searchWithSuggestions: term => {
 		
 		self.searchWithMatches(term)
-		.then(result => {
-			if (result.bestMatch.rating === 1) {        
-				Log.title(`Found it!`);
-				log(Suggestions.getSuggestion(result.bestMatch))
-			
-			} else if (result.ratings.length > 0) {
-				let suggestions = Suggestions.getSuggestions(result.ratings);
+			.then(result => {
+				if (result.bestMatch.rating === 1) {        
+					Log.title(`Found it!`);
+					log(Suggestions.getSuggestion(result.bestMatch))
+				
+				} else if (result.ratings.length > 0) {
+					self.showSuggestionsIfPresent(result.ratings, term);
+				} else {
+					Utils.suggestCreation(term);
+				}
+			});
+	},
 
-				showSuggestionsifPresent(suggestions);
-			} else {
-				Utils.suggestCreation(term);
-			}
-		});
+	showSuggestionsIfPresent: (ratings, term) => {
+		
+		let suggestions = Suggestions.getSuggestions(ratings)
+
+		if (suggestions.length > 0) {
+			Log.title(`Did you mean`);
+			suggestions.forEach(item => {
+				log(item);
+			})
+		} else {
+			Utils.suggestCreation(term);  
+		}
 	}
 };
