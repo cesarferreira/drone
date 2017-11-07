@@ -18,44 +18,20 @@
 - :v: Automated dependency and package management
 - :hammer: Automatic import custom urls (e.g. jitpack)
 
-### What is it?
-
-As an android developer I was jealous of the node.js community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and a library is imported into the project... So I made `drone` for android!
-
-If you think about it there are like 50 libraries that are used in 95% of the apps (retrofit, rxjava, gson, picasso, roboletric, recyclerview-v7, etc.)
-
-I made this because every time I want to add (lets say) butterknife I need to
-1. google butterknife
-2. go to the readme
-3. find the lines to copy
-4. notice that butterknife has 2 dependencies
-5. copy and paste in my gradle file
-6. OPTIONAL if it was not in jcenter, go to the main build gradle and put the custom URL
-
-OR...
-
-```sh
-drone add butterknife
-```
-and everything will be done for you automatically
-
-## Install
-
-```sh
-npm install -g drone
-```
-
 ## Usage
 Simple usage:
 > drone add `<library>` `<module>`
 
 --------
+
+Single library
 > drone add `picasso` app
 
+Multiple
 > drone add `picasso` `retrofit` `rxjava` `gson` app
 
 <p align="center">
-<img src="extras/add3.gif" width="100%" />
+<img src="extras/add4.gif" width="100%" />
 </p>
 
 ```
@@ -88,6 +64,33 @@ Usage
    $ drone search rxjava                      # Searches the hive for 'rxjava'
    $ drone test picasso                       # Tests the library by fetching its version
 ```
+
+## Install
+
+```sh
+npm install -g drone
+```
+
+### What is it?
+
+As an android developer I was jealous of the node.js community for their fast and reliable dependency managers, it's so easy to write `yarn add <library>` and a library is imported into the project... So I made `drone` for android!
+
+If you think about it there are like 50 libraries that are used in 95% of the apps (retrofit, rxjava, gson, picasso, roboletric, recyclerview-v7, etc.)
+
+I made this because every time I want to add (lets say) butterknife I need to
+1. google butterknife
+2. go to the readme
+3. find the lines to copy
+4. notice that butterknife has 2 dependencies
+5. copy and paste in my gradle file
+6. OPTIONAL if it was not in jcenter, go to the main build gradle and put the custom URL
+
+OR...
+
+```sh
+drone add butterknife
+```
+and everything will be done for you automatically
 
 # Where are the libraries?
 

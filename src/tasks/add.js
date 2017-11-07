@@ -9,6 +9,7 @@ const Log = require('../utils/log_utils');
 const Utils = require('../utils/utils');
 const GradleUtils = require('../utils/gradle_utils');
 const Constants = require('../utils/constants');
+const Install = require('../tasks/install');
 
 function handle(found, info) {
 	if (found.length > 0) {
@@ -30,10 +31,8 @@ function handle(found, info) {
 function handleRepositoryInjection(info) {
 	if (info.repository.url) {
 		const mainGradleFilePath = GradleUtils.mainGradleFilePath();
-		Utils.findStringInFile(info.repository.url, mainGradleFilePath)
-			.then(found => {
-				handle(found, info)
-			});
+		const found = Utils.findStringInFileSync(info.repository.url, mainGradleFilePath)	
+		handle(found, info)
 	}
 }
 
@@ -49,24 +48,22 @@ function findLineAndInsertDependency(module, dep, gradleFilePath) {
 }
 
 function injectDependency(dep, dependenciesLength, module, gradleFilePath) {
-	return Utils.findStringInFile(dep.dependency, gradleFilePath)
-		.then(found => {
-			if (found.length === 0) {
-				Log.title(`Inserted the following line`);
-				
-				const resultLine = findLineAndInsertDependency(module, dep, gradleFilePath);
-				log(Chalk.green(resultLine.trim()))
-			} else {
-				Log.titleError(`${Chalk.green(dep.dependency)} is already there @ line ${found[0].line}`)
-			}
-		})
-		.catch(err => log(err))
+	const found = Utils.findStringInFileSync(dep.dependency, gradleFilePath)
+
+	if (found.length === 0) {
+		Log.title(`Inserted the following line`);
+		
+		const resultLine = findLineAndInsertDependency(module, dep, gradleFilePath);
+		log(Chalk.green(resultLine.trim()))
+	} else {
+		Log.titleError(`${Chalk.green(dep.dependency)} is already there @ line ${found[0].line}`)
+	}
 }
 
-function handleGradleDependencyInjection(module, dependencies, gradleFilePath) {
-	if (GradleUtils.gradleFileExistsIn(module)) {
+function handleGradleDependencyInjection(appModule, dependencies, gradleFilePath) {
+	if (GradleUtils.gradleFileExistsIn(appModule)) {
 		var actions = dependencies.map(dep => {
-			return injectDependency(dep, dependencies.length, module, gradleFilePath);
+			return injectDependency(dep, dependencies.length, appModule, gradleFilePath);
 		})
 
 		Promise.all(actions);
@@ -76,6 +73,28 @@ function handleGradleDependencyInjection(module, dependencies, gradleFilePath) {
 	}
 }
 
+function handleSearchResponse(result, appModule) {
+	if (result.rating === 1) {
+		hive.getWithVersions(result.target)
+			.then(info => {
+				handleRepositoryInjection(info);
+				const gradlePath = GradleUtils.gradleFilePath(appModule);
+				handleGradleDependencyInjection(appModule, info.dependencies, gradlePath);
+			});
+	} else {
+		Log.title('Did you mean');
+		log(`${result.target}`);
+	}
+}
+
+function handleInsertion(libraries, appModule) {
+	libraries.forEach(library => {
+		QuickSearch.search(library)
+			.then(result => {
+				handleSearchResponse(result, appModule);			
+			})
+		})
+}
 // Main code //
 const self = module.exports = {
 	init: (input) => {
@@ -84,23 +103,11 @@ const self = module.exports = {
 			return;
 		}
 
-		const module = input[input.length-1];
+		const appModule = input[input.length-1];
 		const libraries = input.splice(0, input.length-1)
-		
-		libraries.forEach(library => {
-			QuickSearch.search(library)
-			.then(result => {
-				if (result.rating === 1) {
-					hive.getWithVersions(result.target)
-					.then(info => {
-						handleRepositoryInjection(info);
-						handleGradleDependencyInjection(module, info.dependencies, GradleUtils.gradleFilePath(module));
-					});
-				} else {
-					Log.title('Did you mean');
-					log(`${result.target}`);
-				}
-			});
-		})
-		}
-	};
+			
+		handleInsertion(libraries, appModule);
+
+		// Install.downloadDependencies()
+	}
+};

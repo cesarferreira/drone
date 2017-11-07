@@ -37,7 +37,7 @@ const self = module.exports = {
 		return `${process.cwd()}/build.gradle`;
 	},
 	mainGradleContentAsString: () => {
-		return fsp.readFile(self.mainGradleFilePath());
+		return fsp.readFileSync(self.mainGradleFilePath());
 	},
 	gradleFilePath: module => {
 		return `${process.cwd()}/${module}/build.gradle`;
@@ -86,33 +86,26 @@ const self = module.exports = {
 		return result.line - 1;
 	},
 	findLineToInsertDependency: (repositoryInfo) => {
-		return self.mainGradleContentAsString()
-			.then(content => {
-				// find DEPENDENCY
-				return Utils.findStringInFile('repositories', self.mainGradleFilePath())
-					.then(repositoriesFound => {
-						const cleanedRepositories = cleanupComments(repositoriesFound);
+		const content = self.mainGradleContentAsString()
+			// find DEPENDENCY
+		const repositoriesFound = Utils.findStringInFileSync('repositories', self.mainGradleFilePath())
+				
+		const cleanedRepositories = cleanupComments(repositoriesFound);
+		const allProjectsFound = Utils.findStringInFileSync('allprojects', self.mainGradleFilePath())
+		const cleanedAllProjects = cleanupComments(allProjectsFound);
 
-						return Utils.findStringInFile('allprojects', self.mainGradleFilePath())
-							.then(allProjectsFound => {
-								const cleanedAllProjects = cleanupComments(allProjectsFound);
+		if (cleanedAllProjects.length > 0) {
+			// I found an all projects
+			const rightRepository = theRightRepository(cleanedRepositories, cleanedAllProjects);
 
-								if (cleanedAllProjects.length > 0) {
-									// ACHEI UM ALL PROJECTS
-									const rightRepository = theRightRepository(cleanedRepositories, cleanedAllProjects);
+			if (!Utils.isEmpty(rightRepository)) {
+				const cursor = rightRepository.text.indexOf(`{`) + 1;
+				const result = self.findEndBracket(self.mainGradleFilePath(), rightRepository.line, cursor);
+				return result.line - 1;
+			}
+		} else {
+			throw `didnt find an allprojects`;
+		}
 
-									if (!Utils.isEmpty(rightRepository)) {
-										const cursor = rightRepository.text.indexOf(`{`) + 1;
-										// const line = getRepositoryLine(repositoryInfo.url); TODO ISTO NAO DEVIA ESTAR AQUI
-										const result = self.findEndBracket(self.mainGradleFilePath(), rightRepository.line, cursor);
-										// ENDINGBRACKET - 1 in position should be the place
-										return result.line - 1;
-									}
-								} else {
-									throw `didnt find an allprojects`;
-								}
-							});
-					});
-			});
 	}
 };

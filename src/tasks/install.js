@@ -11,18 +11,19 @@ const fs = require('fs');
 
 // Main code //
 const self = module.exports = {
-  init: (input) => {
+  downloadDependencies: (input) => {
     let command = './gradlew dependencies'
     if (fs.existsSync('build.gradle')) {
       if (!fs.existsSync('gradlew')) {
         command = 'gradle dependencies'
       }
       Log.title(`Trying to install dependencies...`);
-      Utils.run(command)
-        .then(() => {
-        })
+      Utils.run(command).then(() => {});
     } else {
       Log.titleError(`This doesn't look like a gradle project`);
     }
+  },
+  init: (input) => {
+    self.downloadDependencies();
   }
 };
