@@ -97,11 +97,7 @@ const self = module.exports = {
 		
 		self.searchWithMatches(term)
 			.then(result => {
-				if (result.bestMatch.rating === 1) {        
-					Log.title(`Found it!`);
-					log(Suggestions.getSuggestion(result.bestMatch))
-				
-				} else if (result.ratings.length > 0) {
+				if (result.ratings.length > 0) {
 					self.showSuggestionsIfPresent(result.ratings, term);
 				} else {
 					Utils.suggestCreation(term);
@@ -114,7 +110,7 @@ const self = module.exports = {
 		let suggestions = Suggestions.getSuggestions(ratings)
 
 		if (suggestions.length > 0) {
-			Log.title(`Did you mean`);
+			Log.title(`Look at what I found`);
 			suggestions.forEach(item => {
 				log(item);
 			})

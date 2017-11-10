@@ -18,7 +18,7 @@ const self = module.exports = {
   getSuggestions: items => {
     let result = []
     Utils.sortByKey(items, 'rating').forEach(item => {
-      if (item.rating > 0.3) {
+      if (item.rating > 0.6) {
         result.push(self.getSuggestion(item));
       }
     });
