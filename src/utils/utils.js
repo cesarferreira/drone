@@ -71,11 +71,7 @@ const self = module.exports = {
         } else {
           stringSearcher.find(content, textToFind)
             .then(resultArr => {
-              if (resultArr.length > 0) {
-                resolve(resultArr);
-              } else {
-                resolve([])
-              }
+              resolve (resultArr.length > 0 ? resultArr : [])
             });
         }
       });

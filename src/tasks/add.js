@@ -11,28 +11,28 @@ const GradleUtils = require('../utils/gradle_utils');
 const Constants = require('../utils/constants');
 const Install = require('../tasks/install');
 
-function handle(found, info) {
+function handle(found, info, mainGradleFilePath) {
 	if (found.length > 0) {
 		Log.title(`${Chalk.yellow(info.repository.url)} is already in the main build.gradle`);
 	} else {
-		return GradleUtils.findLineToInsertDependency(info.repository)
-			.then(result => {
-				const lineText = GradleUtils.getRepositoryLine(info.repository.server, info.repository.url)
-				GradleUtils.insertLineInFile(mainGradleFilePath, lineText, result);
-				// pretty print the lines
-				log(Chalk.green(lineText.trim()));
-			}).catch(err => {
-				log(`\nYou are missing the following lines in your main ${Chalk.green('build.gradle')} `)
-				log(Chalk.yellow(Constants.ALL_PROJECTS_EMPTY_TEMPLATE))
-				log(`\nAfter you add the lines, re-run the drone command`)
-			});
+		const result = GradleUtils.findLineToInsertDependency(info.repository)
+
+		const lineText = GradleUtils.getRepositoryLine(info.repository.server, info.repository.url)
+		GradleUtils.insertLineInFile(mainGradleFilePath, lineText, result);
+		// pretty print the lines
+		log(Chalk.green(lineText.trim()));
+		// }).catch(err => {
+		// 	log(`\nYou are missing the following lines in your main ${Chalk.green('build.gradle')} `)
+		// 	log(Chalk.yellow(Constants.ALL_PROJECTS_EMPTY_TEMPLATE))
+		// 	log(`\nAfter you add the lines, re-run the drone command`)
+		// });
 	}
 }
 function handleRepositoryInjection(info) {
 	if (info.repository.url) {
 		const mainGradleFilePath = GradleUtils.mainGradleFilePath();
 		const found = Utils.findStringInFileSync(info.repository.url, mainGradleFilePath)	
-		handle(found, info)
+		handle(found, info, mainGradleFilePath)
 	}
 }
 
@@ -51,10 +51,8 @@ function injectDependency(dep, dependenciesLength, module, gradleFilePath) {
 	const found = Utils.findStringInFileSync(dep.dependency, gradleFilePath)
 
 	if (found.length === 0) {
-		Log.title(`Inserted the following line`);
-		
 		const resultLine = findLineAndInsertDependency(module, dep, gradleFilePath);
-		log(Chalk.green(resultLine.trim()))
+		Log.title(`Inserted: ${Chalk.green(resultLine.trim())}`)
 	} else {
 		Log.titleError(`${Chalk.green(dep.dependency)} is already there @ line ${found[0].line}`)
 	}
