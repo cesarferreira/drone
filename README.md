@@ -55,11 +55,10 @@ Usage
  Examples
 
    $ drone install                            # Downloads the packages
-   $ drone info picasso                       # Shows the info for square/picasso
-   $ drone add square/retrofit app            # Adds retrofit to the 'app' module 
+   $ drone info picasso                       # Shows the info for picasso
    $ drone add retrofit app                   # Adds retrofit to the 'app' module 
-   $ drone rm square/retrofit app             # removes retrofit from the 'app' module 
-   $ drone open google/gson                   # Opens GSONs homepage
+   $ drone rm retrofit app                    # removes retrofit from the 'app' module 
+   $ drone open gson                          # Opens GSONs homepage
    $ drone new                                # takes you through the creation wizard
    $ drone search rxjava                      # Searches the hive for 'rxjava'
    $ drone test picasso                       # Tests the library by fetching its version
