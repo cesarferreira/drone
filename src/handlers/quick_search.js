@@ -12,11 +12,10 @@ const Similarity = require('string-similarity');
 const Suggestions = require('../handlers/suggestions');
 const Utils = require('../utils/utils');
 
-function readConfig(path) {
+function readFile(path) {
 	return fs.readFile(path)
 		.then(content => JSON.parse(content));
 }
-
 
 function findMatch(term, items) {
 	let result = items;
@@ -41,43 +40,66 @@ const self = module.exports = {
 			.ext('json')
 			.find();
 	},
-	getAllUsernameRepoPairs: () => {
+
+	getLibraryInfo: library => {
+    const path = `${Constants.HIVE_LIBS_DIR}/${library}.json`;
+    return require(path);
+  },
+
+	generateSummary: () => {
 		return self.findAllJsonFiles()	
 		.then(items => {
-			let newArray = [];
+			let libraries = [];
+
 			items.forEach(item => {
-				const newItem = item.replace(Constants.HIVE_LIBS_DIR+'/', '').replace('.json','');
-				newArray.push(newItem)
+				var toSave = {}
+				var libraryName = item.replace(Constants.HIVE_LIBS_DIR+'/', '').replace('.json','');
+				var info = self.getLibraryInfo(libraryName)
+				
+				toSave = {
+					name: libraryName,
+					author: info.author.name,
+					description: info.description,
+					searchable: libraryName + ` | ` + info.description + ` | ` + info.author.name
+				}
+
+				libraries.push(toSave);
 			});
-			return newArray;
+
+			return libraries;
 		});
 	},
+
 	initOrUpdateFile: () => {
-		return self.getAllUsernameRepoPairs()
+		return self.generateSummary()
 			.then(items => {
 				self.save(items);
 				return items;
 			})
 	},
+
 	save: (items) => {
-		fs.writeFileSync(Constants.HIVE_SUMMARY_FILE, JSON.stringify(items), 'utf-8'); 
-	}, 
+		fs.writeFileSync(Constants.HIVE_SUMMARY_FILE, JSON.stringify(items, null, 2), 'utf-8'); 
+	},
+
 	read: () => {
 		let arrayOfPairs;
 		if (fs.existsSync(`${Constants.HIVE_SUMMARY_FILE}`)) {
-			arrayOfPairs = readConfig(Constants.HIVE_SUMMARY_FILE)
+			arrayOfPairs = readFile(Constants.HIVE_SUMMARY_FILE)
 		} else {
 			arrayOfPairs = self.initOrUpdateFile();
 		}
 
 		return arrayOfPairs;
 	},
+
 	getPairFromInput: term => { 
 		return self.read()
 			.then(items => {
 				return findMatch(term, items);
 			});
 	},
+
 	search: term => {
 		return self.read()
 			.then(items => {
@@ -85,6 +107,7 @@ const self = module.exports = {
 				return Similarity.findBestMatch(rightTerm, items).bestMatch;
 			})
 	},
+
 	searchWithMatches: term => {
 		return self.read()
 			.then(items => {
@@ -94,7 +117,6 @@ const self = module.exports = {
 	},
 
 	searchWithSuggestions: term => {
-		
 		self.searchWithMatches(term)
 			.then(result => {
 				if (result.ratings.length > 0) {
@@ -106,7 +128,6 @@ const self = module.exports = {
 	},
 
 	showSuggestionsIfPresent: (ratings, term) => {
-		
 		let suggestions = Suggestions.getSuggestions(ratings)
 
 		if (suggestions.length > 0) {
