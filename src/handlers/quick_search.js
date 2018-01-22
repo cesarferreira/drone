@@ -21,7 +21,8 @@ function readConfig(path) {
 function findMatch(term, items) {
 	let result = items;
 	let newTerm = term;
-	if (term.indexOf('/') === -1) {
+	if (term.indexOf('/') !== -1) {
+		log(term)
 		result = items.map(item => item.split('/')[1])
 	}
 
@@ -88,7 +89,8 @@ const self = module.exports = {
 	searchWithMatches: term => {
 		return self.read()
 			.then(items => {
-				const rightTerm = findMatch(term, items);				
+				const rightTerm = term //findMatch(term, items);		
+				log(rightTerm)		
 				return Similarity.findBestMatch(rightTerm, items);
 			})
 	},
