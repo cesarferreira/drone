@@ -16,7 +16,7 @@ const self = module.exports = {
     QuickSearch.search(term)
       .then(results => {
 
-        const bestMatch = (results.length === 1 && results[0] === input[0])? results[0] : undefined
+				const bestMatch = QuickSearch.findBestMatch(results, input[0])
 
         if (bestMatch) {
           hive.getWithVersions(bestMatch)

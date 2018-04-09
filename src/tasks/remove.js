@@ -47,9 +47,12 @@ const self = module.exports = {
     const module = input[2];
 
     QuickSearch.search(pair)
-      .then(result => {
-        if (result.rating === 1) {
-          hive.getWithVersions(result.target)
+      .then(results => {
+
+        const bestMatch = QuickSearch.findBestMatch(results, pair)
+
+        if (bestMatch) {
+          hive.getWithVersions(bestMatch)
             .then(info => {
               remove(module, info.dependencies, GradleUtils.gradleFilePath(module));
             });

@@ -65,10 +65,14 @@ const self = module.exports = {
 		return arrayOfPairs;
 	},
 
+	findBestMatch: (results, term) => {
+		return (results.length === 1 && results[0] === term) ? results[0] : undefined
+	},
+
 	getPairFromInput: term => { 
-		return self.read()
-			.then(items => {
-				return findMatch(term, items);
+		return self.search(term)
+			.then(results => {
+				return results[0]
 			});
 	},
 
@@ -81,9 +85,9 @@ const self = module.exports = {
 
 	searchWithSuggestions: term => {
 		self.search(term)
-			.then(result => {
-				if (result.length > 0) {
-					self.showSuggestionsIfPresent(result, term);
+			.then(results => {
+				if (results.length > 0) {
+					self.showSuggestionsIfPresent(results, term);
 				} else {
 					Utils.suggestCreation(term);
 				}

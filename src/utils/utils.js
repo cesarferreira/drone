@@ -56,7 +56,7 @@ const self = module.exports = {
     }).reverse();
   },
   suggestCreation: (input) => {
-    Log.titleError(`CANT FIND ${Chalk.yellow(input)}`)
+    Log.titleError(`CANT FIND ${Chalk.yellow(input)}\n\n`)
     log(`Try to run ${Chalk.green('drone update')} to get the latest packages`)
     log(`If it doesn't work, to learn how to create a new 'drone' go to\n${Chalk.green(Constants.HIVE_GITHUB_URL)}`)
   },

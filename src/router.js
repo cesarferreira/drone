@@ -99,8 +99,8 @@ const self = module.exports = {
 					log(`Sorry, cant find ${first}`);
 			}
 		})
-		.catch(err => {
-			log(`An error ocurred while cloning the hive project:\n${Chalk.red(err)}`);
-		});
+		// .catch(err => {
+		// 	log(`An error ocurred while cloning the hive project:\n${Chalk.red(err)}`);
+		// });
 	}
 };

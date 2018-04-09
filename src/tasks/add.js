@@ -71,25 +71,27 @@ function handleGradleDependencyInjection(appModule, dependencies, gradleFilePath
 	}
 }
 
-function handleSearchResponse(result, appModule) {
-	if (result.rating === 1) {
-		hive.getWithVersions(result.target)
+function handleSearchResponse(results, appModule, library) {
+
+	const bestMatch = QuickSearch.findBestMatch(results, library)
+
+  if (bestMatch) {
+		hive.getWithVersions(bestMatch)
 			.then(info => {
 				handleRepositoryInjection(info);
 				const gradlePath = GradleUtils.gradleFilePath(appModule);
 				handleGradleDependencyInjection(appModule, info.dependencies, gradlePath);
 			});
 	} else {
-		Log.title('Did you mean');
-		log(`${result.target}`);
+		Log.titleError(`Couldnt find ${library}`);
 	}
 }
 
 function handleInsertion(libraries, appModule) {
 	libraries.forEach(library => {
 		QuickSearch.search(library)
-			.then(result => {
-				handleSearchResponse(result, appModule);			
+			.then(results => {
+				handleSearchResponse(results, appModule, library);			
 			})
 		})
 }

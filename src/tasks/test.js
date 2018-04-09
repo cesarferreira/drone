@@ -20,9 +20,12 @@ const self = module.exports = {
 
 		QuickSearch.search(input[0])
 			.then(results => {
-				if (results.length === 1 && results[0] === input[0]) {
+
+				const bestMatch = QuickSearch.findBestMatch(results, input[0])
+
+				if (bestMatch) {
 					Log.title(`Found it!`)
-					hive.getWithVersions(results[0])
+					hive.getWithVersions(bestMatch)
 						.then(info => {
 							hive.getCompileLines(info);
 							const lines = hive.getCompileLines(info);
