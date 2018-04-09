@@ -10,17 +10,14 @@ const Constants = require('../utils/constants');
 const self = module.exports = {
 
   getSuggestion: (item) => {    
-    const description = self.getLibraryDescription(item.target);
-    // Chalk.grey(`${Math.round(item.rating * 100)}% `)+
-    return `${item.target}: ${Chalk.grey(description)}`;
+    const description = self.getLibraryDescription(item);
+    return `${item}: ${Chalk.grey(description)}`;
   },
 
   getSuggestions: items => {
     let result = []
-    Utils.sortByKey(items, 'rating').forEach(item => {
-      if (item.rating > 0.6) {
-        result.push(self.getSuggestion(item));
-      }
+    items.forEach(item => {
+      result.push(self.getSuggestion(item));
     });
   
     return result;

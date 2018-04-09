@@ -19,10 +19,10 @@ const self = module.exports = {
 		}
 
 		QuickSearch.search(input[0])
-			.then(result => {
-				if (result.rating === 1) {
+			.then(results => {
+				if (results.length === 1 && results[0] === input[0]) {
 					Log.title(`Found it!`)
-					hive.getWithVersions(result.target)
+					hive.getWithVersions(results[0])
 						.then(info => {
 							hive.getCompileLines(info);
 							const lines = hive.getCompileLines(info);
@@ -30,9 +30,12 @@ const self = module.exports = {
 								log(Chalk.green(line))
 							});
 						});
-				} else if (result.rating > 0.3) {
+				} else if (results.length > 0) {
 					Log.title(`Did you mean`);
-					log(Suggestions.getSuggestion(result));
+					let suggestions = Suggestions.getSuggestions(results)
+					suggestions.forEach(item => {
+						log(item);
+					})
 				} else {
 					Utils.suggestCreation(input);
 				}

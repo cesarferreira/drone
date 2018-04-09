@@ -13,15 +13,18 @@ const self = module.exports = {
   init: (input) => {
 
     const term = input[0]
-    QuickSearch.searchWithMatches(term)
-      .then(result => {
-        if (result.bestMatch.rating === 1) {
-          hive.getWithVersions(result.bestMatch.target)
+    QuickSearch.search(term)
+      .then(results => {
+
+        const bestMatch = (results.length === 1 && results[0] === input[0])? results[0] : undefined
+
+        if (bestMatch) {
+          hive.getWithVersions(bestMatch)
             .then(info => {
               Utils.printInfo(info);          
             });
         } else {
-          QuickSearch.showSuggestionsIfPresent(result.ratings, term)
+          QuickSearch.showSuggestionsIfPresent(results, term)
         }
       });
   },
