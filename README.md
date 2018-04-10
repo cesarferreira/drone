@@ -95,17 +95,8 @@ and everything will be done for you automatically
 
 Instead of maintaining a server with all the possible libraries I'm going with a [brew](https://brew.sh/) approach, the community will `create` a library `once` and it will be available to everyone else forever in the [hive](https://github.com/cesarferreira/drone-hive)!
 
-> $ drone new
 
-follow the wizard to generate the `<library>.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive) with this format: 
-> **hive/`<creator/library>`.json**
-
-
-<p align="center">
-<img src="extras/new.gif" width="100%" />
-</p>
-
-If you look closely, when you type `square/retrofit`, `drone` will autofill everything for you, and even if it takes a few hours for the pull request to be accepted you'll be able to do `drone add square/retrofit` because the `drone new` task will add it to your personal server/folder.
+Follow the instructions to create the `<library>.json` file then open the pull request in the [hive](https://github.com/cesarferreira/drone-hive)
 
 ## Created by
 [Cesar Ferreira](https://cesarferreira.com)
