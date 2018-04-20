@@ -23,7 +23,6 @@ Usage
    $ drone stats                              # Get some stats regarding the hive
    $ drone hive                               # Opens the hive url
    $ drone open <library>                     # Opens the library's homepage
-   $ drone new                                # Creates a new one if it's not in the server yet
    $ drone search <library>                   # Searches for the 'library' in the hive
 
  Examples
@@ -33,7 +32,6 @@ Usage
    $ drone add retrofit app                   # Adds retrofit to the 'app' module 
    $ drone rm retrofit app                    # removes retrofit from the 'app' module 
    $ drone open gson                          # Opens GSONs homepage
-   $ drone new                                # takes you through the creation wizard
    $ drone search rxjava                      # Searches the hive for 'rxjava'
    $ drone test picasso                       # Tests the library by fetching its version
 `,
