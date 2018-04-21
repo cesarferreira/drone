@@ -5,6 +5,7 @@ const log = console.log;
 const Utils = require('../utils/utils');
 const Chalk = require('chalk');
 const Constants = require('../utils/constants');
+const jsonfile = require('jsonfile');
 
 // Main code //
 const self = module.exports = {
@@ -22,8 +23,9 @@ const self = module.exports = {
   
     return result;
   },
+  
   getLibraryDescription: pair => {
     const path = `${Constants.HIVE_LIBS_DIR}/${pair}.json`;
-    return require(path).description;
+    return jsonfile.readFileSync(path).description;
   },
 };

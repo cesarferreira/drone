@@ -27,6 +27,7 @@
     "homedir": "^0.6.0",
     "inquirer": "^3.2.1",
     "json-colorz": "^0.2.7",
+    "jsonfile": "^4.0.0",
     "match-bracket": "^1.0.0",
     "meow": "^3.7.0",
     "mz": "^2.6.0",
