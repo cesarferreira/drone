@@ -31,6 +31,7 @@ const self = module.exports = {
 			.ext('json')
 			.find();
 	},
+
 	getAllUsernameRepoPairs: () => {
 		return self.findAllJsonFiles()	
 		.then(items => {
@@ -65,8 +66,10 @@ const self = module.exports = {
 		return arrayOfPairs;
 	},
 
-	findBestMatch: (results, term) => {
-		return (results.length === 1 && results[0] === term) ? results[0] : undefined
+	findBestMatch: (items, searchTerm) => {
+		let filteredItems = items.filter(s => s.includes(searchTerm))
+		let foundIt = filteredItems.indexOf(searchTerm)
+		return (foundIt > -1) ? filteredItems[foundIt] : undefined
 	},
 
 	getPairFromInput: term => { 
