@@ -33,7 +33,7 @@
     "mz": "^2.6.0",
     "node-read-url": "^1.0.0",
     "opn": "^5.1.0",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.5",
     "string-search": "^1.2.0",
     "update-notifier": "^2.2.0",
     "xml2js": "^0.4.18"
